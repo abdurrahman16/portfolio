@@ -17,32 +17,45 @@ const TRANSLATIONS = {
       languageSwitch: "日本語"
     },
     hero: {
-      eyebrow: "~/whoami",
-      role: "Web Developer",
-      roleAlt: "Software Engineer",
-      status: "Available for new opportunities",
-      intro: "I build fast, accessible, end-to-end web applications — from pixel-considered interfaces to the APIs and databases behind them. Comfortable across the stack, focused on shipping things that hold up in production.",
-      primaryCta: "View My Projects",
-      secondaryCta: "Download CV",
-      statYears: "Years building software",
-      statProjects: "Projects shipped",
-      statStack: "Core technologies"
-    },
+  eyebrow: "~/whoami",
+  role: "Web Developer",
+  roleAlt: "System Engineer",
+  status: "Available for new opportunities",
+
+  intro:
+    "I'm a Web Developer and System Engineer with 3+ years of IT experience, currently pursuing a Master's degree at Saga University. With business-level English (IELTS B2), Japanese communication skills (JLPT N3 level), and a CCNA certification, I bring a unique combination of software development, networking, and international communication skills to every project.",
+
+  primaryCta: "View My Projects",
+  secondaryCta: "Download CV",
+
+  statYears: "IT Experience",
+  statProjects: "Projects Built",
+  statStack: "Web & Network Technologies"
+},
     about: {
-      eyebrow: "~/about",
-      title: "About me",
-      copy1: "I'm a web developer and software engineer who enjoys turning ambiguous problems into clean, working software. My background spans both front-end interfaces and back-end systems, which lets me reason about a feature end-to-end — from the database schema to the pixel on screen.",
-      copy2: "I studied Computer Science and have spent my education and early career deliberately widening my stack: modern JavaScript frameworks on the front end, Node.js and Java/Spring Boot on the back end, and relational and document databases underneath. I care about code that's easy to read six months later, not just code that works today.",
-      copy3: "What keeps me in this field is the feedback loop — writing a line of code and seeing it become something a real person can click, use, and rely on. I'm currently looking for a team where I can keep building that kind of software at a higher level.",
-      factFocusLabel: "Focus",
-      factFocusValue: "Full-Stack Web Development",
-      factEducationLabel: "Education",
-      factEducationValue: "B.Sc. in Computer Science",
-      factLocationLabel: "Based in",
-      factLocationValue: "Available for Remote / Relocation",
-      factStatusLabel: "Currently",
-      factStatusValue: "Open to new opportunities"
-    },
+  eyebrow: "~/about",
+  title: "About me",
+  copy1:
+    "I'm a Web Developer and System Engineer who enjoys building practical software and solving technical problems. My experience spans front-end development, back-end systems, databases, and networking, allowing me to understand applications from both the software and infrastructure perspectives.",
+
+  copy2:
+    "I work with technologies such as React, Node.js, Express.js, MongoDB, Java, and Spring Boot. I also hold the Cisco Certified Network Associate (CCNA 200-301) certification, strengthening my knowledge of networking, system infrastructure, and troubleshooting.",
+
+  copy3:
+    "I'm currently pursuing a Master's degree in Information Science and Technology at Saga University, Japan. I enjoy continuously learning new technologies and am looking for opportunities where I can contribute as a Web Developer or System Engineer while continuing to grow as an IT professional.",
+
+  factFocusLabel: "Focus",
+  factFocusValue: "Web Development & System Engineering",
+
+  factEducationLabel: "Education",
+  factEducationValue: "M.Sc. in Information Science & Technology",
+
+  factLocationLabel: "Based in",
+  factLocationValue: "Saga, Japan",
+
+  factStatusLabel: "Certification",
+  factStatusValue: "Cisco Certified Network Associate (CCNA)"
+},
     skills: {
       eyebrow: "~/skills",
       title: "Technical skills",
@@ -570,6 +583,8 @@ function renderProjects() {
    ========================================================================== */
 function renderExperience() {
   const el = document.getElementById("experienceTimeline");
+  if (!el) return;
+
   el.innerHTML = EXPERIENCE.map(
     (job) => `
     <div class="timeline-item reveal">
@@ -589,6 +604,8 @@ function renderExperience() {
 
 function renderEducation() {
   const el = document.getElementById("educationTimeline");
+  if (!el) return;
+
   el.innerHTML = EDUCATION.map(
     (edu) => `
     <div class="timeline-item reveal">
@@ -697,7 +714,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   });
 });
 
-const sections = ["home", "about", "skills", "projects", "experience", "education", "contact"]
+const sections = ["home", "about", "skills", "projects", "contact"]
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 
