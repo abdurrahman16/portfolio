@@ -384,9 +384,9 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    title: "Web Developer",
-    company: "Freelance / Contract Projects",
-    date: "2024 — Present",
+    title: "System Engineer",
+    company: "Green Tech Dahaka, Bangladesh",
+    date: "2022 — 2025",
     responsibilities: [
       "Designed and built full-stack web applications for small business clients",
       "Worked directly with clients to scope requirements and set realistic timelines",
@@ -395,30 +395,30 @@ const EXPERIENCE = [
     technologies: ["React", "Node.js", "MongoDB", "Express.js"],
   },
   {
-    title: "Software Engineering Intern",
-    company: "Example Tech Company",
-    date: "2023 — 2024",
+    title: "Remote IT Support Specialist",
+    company: "Merb Resources Ltd, Nigeria",
+    date: "2020-2021",
     responsibilities: [
-      "Contributed features to an internal Java/Spring Boot service used by other teams",
+      "Contributed features to an internal Wordpress/PHP service used by other teams",
       "Wrote unit and integration tests to raise coverage on legacy modules",
       "Participated in code reviews and sprint planning as part of an agile team",
     ],
-    technologies: ["Java", "Spring Boot", "MySQL", "Git"],
+    technologies: ["PHP", "Wordpress", "MySQL", "Git"],
   },
 ];
 
 const EDUCATION = [
   {
-    degree: "B.Sc. in Computer Science",
-    university: "Your University Name",
-    date: "2020 — 2024",
+    degree: "B.Sc. in Computer Science & Engineering",
+    university: "Jashore University of Science and Technology, Bangladesh",
+    date: "2017 — 2022",
     field: "Focus on software engineering, web technologies, and databases",
   },
   {
-    degree: "Higher Secondary Certificate",
-    university: "Your College Name",
-    date: "2018 — 2020",
-    field: "Science group, with an early focus on mathematics and computing",
+    degree: "Graduate in Computer Science and Information Technology, Japan",
+    university: "Saga National University, Japan",
+    date: "April 2025 — March 2027",
+    field: "Science and Engineering, with a focus on advanced software development and research",
   },
 ];
 
