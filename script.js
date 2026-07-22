@@ -133,9 +133,9 @@ const TRANSLATIONS = {
     hero: {
       eyebrow: "~/自己紹介",
       role: "Web Developer",
-      roleAlt: "Software Engineer",
+      roleAlt: "System Engineer",
       status: "新しい機会を歓迎します",
-      intro: "高速でアクセシブルなエンドツーエンドの Web アプリケーションを構築します。見た目だけでなく、API やデータベースまで含めて堅実に実装し、実運用に耐える品質を重視しています。",
+      intro: "3年以上のIT経験を持つ Web Developer / System Engineer です。Saga University で情報科学技術を学びながら、英語（IELTS B2）、日本語（JLPT N3）、CCNA の知識を活かして、実務レベルの開発とインフラ対応を両立させています。",
       primaryCta: "実績を見る",
       secondaryCta: "履歴書をダウンロード",
       statYears: "開発経験年数",
@@ -145,17 +145,17 @@ const TRANSLATIONS = {
     about: {
       eyebrow: "~/自己紹介",
       title: "プロフィール",
-      copy1: "私は Web 開発者兼ソフトウェアエンジニアとして、曖昧な課題を整理し、実用的なソフトウェアへ落とし込むことに喜びを感じています。フロントエンドからバックエンドまで一貫して考えられる点が、私の強みです。",
-      copy2: "コンピュータサイエンスを学び、教育とキャリアの初期段階で JavaScript や Node.js、Java/Spring Boot、データベースを幅広く学んできました。数か月後に読み返しても理解しやすいコードを書き続けることを大切にしています。",
-      copy3: "この分野に魅力を感じるのは、コードを書いて実際の人が使える形にできるフィードバックループがあるからです。より大きな規模で価値を生み出せるチームで働きたいと考えています。",
+      copy1: "私は Web Developer と System Engineer を軸に、実務で使えるソフトウェアを設計・構築することに興味があります。フロントエンド開発、バックエンド開発、データベース、ネットワークまでを横断して理解できることが、私の強みです。",
+      copy2: "React、Node.js、Express.js、MongoDB、Java、Spring Boot などを使って実装を行ってきました。さらに Cisco Certified Network Associate（CCNA 200-301）を保有しており、ネットワーク・インフラ・トラブルシューティングの知識も活かしています。",
+      copy3: "現在、日本の Saga University で情報科学技術の大学院課程に在籍しながら、新しい技術を学び続けています。Web Developer または System Engineer として、継続的に成長できる環境で貢献したいと考えています。",
       factFocusLabel: "専門領域",
-      factFocusValue: "フルスタック Web 開発",
+      factFocusValue: "Web 開発 & システムエンジニアリング",
       factEducationLabel: "学歴",
-      factEducationValue: "コンピュータサイエンス学士",
+      factEducationValue: "情報科学技術修士課程（在学中）",
       factLocationLabel: "所在地",
-      factLocationValue: "リモート / 転職対応",
-      factStatusLabel: "現在",
-      factStatusValue: "新しい機会を募集中"
+      factLocationValue: "日本・佐賀",
+      factStatusLabel: "資格",
+      factStatusValue: "Cisco Certified Network Associate（CCNA）"
     },
     skills: {
       eyebrow: "~/スキル",
@@ -313,86 +313,120 @@ const PROJECTS = [
       "Implemented a robus solution with rela time date refresh and a SQL Server backend to ensure that the queue state is always consistent and up-to-date.",
   },
   {
-    title: "Portfolio Analytics Dashboard",
-    category: "Frontend",
-    description: "An interactive dashboard visualizing sample analytics data with charts and filters.",
-    image: "assets/japanweather.png",
-    fullDescription:
-      "A front-end-only analytics dashboard that visualizes sample datasets with interactive charts, date-range filters, and exportable views — built to practice complex state management on the client.",
-    technologies: ["React", "JavaScript", "CSS"],
-    github: "https://github.com/your-github-handle/analytics-dashboard",
-    liveDemo: "https://your-demo-link.example.com",
-    role: "Sole developer.",
-    features: [
-      "Interactive charts with drill-down filters",
-      "Date-range selection",
-      "CSV export of the current view",
-      "Fully responsive layout",
-    ],
-    challenges: "Keeping chart re-renders smooth while filters changed rapidly.",
-    solutions: "Debounced filter changes and memoized derived chart data.",
-  },
+  title: "Japan Weather Monitoring System",
+  category: "Full Stack",
+  description:
+    "A full-stack web application that displays weather information for all prefectures in Japan with secure user authentication.",
+  image: "assets/japanweather.png",
+  fullDescription:
+    "A full-stack weather monitoring application built with the MERN stack. Users can create accounts, log in securely, and view weather information for prefectures across Japan through a simple and responsive interface.",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+  github: "https://github.com/abdurrahman16/Japan-Weather-Monitoring-System",
+  liveDemo: "#",
+  role: "Sole developer.",
+  features: [
+    "Weather information for all prefectures in Japan",
+    "User registration and login system",
+    "Secure authentication",
+    "Responsive user interface",
+    "Backend API for weather and user data",
+  ],
+  challenges:
+    "Managing weather data for multiple prefectures while integrating user authentication between the frontend and backend.",
+  solutions:
+    "Built a RESTful API with Node.js and Express, used MongoDB for data management, and implemented a React-based frontend for a smooth and responsive user experience.",
+},
   {
-    title: "Job Searching Web Application",
-    category: "Backend",
-    description: "A REST API for managing projects, tasks, and team members with role-based access.",
-    image: "assets/jobsearch.png",
-    fullDescription:
-      "A backend service for a task-management product, exposing a REST API for projects, tasks, and users, with role-based access control and validation on every endpoint.",
-    technologies: ["Java", "Spring Boot", "MySQL"],
-    github: "https://github.com/your-github-handle/task-api",
-    liveDemo: "",
-    role: "Sole developer — designed the schema and the API contract.",
-    features: [
-      "Role-based access control (admin / member)",
-      "Project and task CRUD endpoints",
-      "Input validation and structured error responses",
-      "Automated tests for core endpoints",
-    ],
-    challenges: "Modeling permissions cleanly across nested resources (projects → tasks).",
-    solutions:
-      "Introduced a permission-check layer shared across controllers instead of duplicating checks per endpoint.",
-  },
+  title: "Job Searching Web Application",
+  category: "Full Stack",
+  description:
+    "A job-seeker platform where users can create accounts, upload resumes, and browse job opportunities through an integrated job board.",
+  image: "assets/jobsearch.png",
+  fullDescription:
+    "A full-stack job searching web application designed for job seekers. Users can register, manage their accounts, upload resumes, and browse job opportunities displayed through a Google Jobs Information API. Administrators can access and manage uploaded resume files through an admin interface.",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+  github: "https://github.com/your-github-handle/job-searching-web-application",
+  liveDemo: "",
+  role: "Sole developer — designed and developed the frontend, backend, authentication system, resume upload functionality, and admin features.",
+  features: [
+    "User registration and login",
+    "Job seeker profile management",
+    "Resume upload functionality",
+    "Admin dashboard for viewing uploaded resumes",
+    "Job board powered by Google Jobs Information API",
+    "Search and browse job opportunities",
+    "MongoDB database integration",
+    "Responsive web interface",
+  ],
+  challenges:
+    "Building a complete job-seeker workflow that connects user authentication, resume file uploads, administrator access, and external job information in a single application.",
+  solutions:
+    "Developed a RESTful backend with Node.js and Express, used MongoDB for user and application data, implemented secure file upload functionality, and integrated external job information to provide users with a practical job-searching experience.",
+},
   {
-    title: "Recipe Finder",
-    category: "Frontend",
-    description: "A recipe search app with ingredient-based filtering and saved favorites.",
-    image: "assets/moviefinder.png",
-    fullDescription:
-      "A client-side recipe search tool that lets users filter by ingredients they already have, view full recipes, and save favorites locally.",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/your-github-handle/recipe-finder",
-    liveDemo: "https://your-demo-link.example.com",
-    role: "Sole developer.",
-    features: [
-      "Ingredient-based search and filtering",
-      "Saved favorites with local storage",
-      "Print-friendly recipe view",
-      "Fully responsive, no-framework build",
-    ],
-    challenges: "Building complex filtering logic in vanilla JavaScript without a framework.",
-    solutions: "Wrote a small reactive rendering helper to keep the DOM in sync with filter state.",
-  },
+  title: "Movie Finder App in Japan",
+  category: "Full Stack",
+  description:
+    "A movie search platform that helps users find where movies are showing across Japan, including available prefectures, cinema halls, ticket prices, and availability status.",
+  image: "assets/moviefinder.png",
+  fullDescription:
+    "A full-stack movie discovery application built with the MERN stack. Users can search for a movie by name and view detailed screening information, including the Japanese prefecture, cinema hall, ticket price, and availability status. The application uses a custom API developed for the platform to manage and provide movie screening information.",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+  github: "https://github.com/your-github-handle/movie-finder-japan",
+  liveDemo: "https://your-demo-link.example.com",
+  role: "Sole developer — designed and developed the frontend, backend, database, and custom API.",
+  features: [
+    "Search movies by title",
+    "Find movie screenings across Japan",
+    "View available prefectures",
+    "View cinema hall information",
+    "Display ticket prices",
+    "Show movie availability status",
+    "Custom REST API developed for the application",
+    "MongoDB database integration",
+    "Responsive user interface",
+  ],
+  challenges:
+    "Organizing movie screening information across multiple prefectures and cinema halls while clearly communicating whether a movie is currently available or unavailable.",
+  solutions:
+    "Built a custom REST API with Node.js and Express to manage movie and cinema data, used MongoDB for data storage, and developed a React interface that dynamically displays screening locations, ticket prices, and availability status.",
+},
   {
-    title: "URL Shortener Service",
-    category: "Other",
-    description: "A backend microservice that shortens URLs and tracks click analytics.",
-    image: "assets/sosandoirdapp.png",
-    fullDescription:
-      "A small, focused microservice that generates short links, redirects visitors, and records basic click analytics — built to practice designing a clean, minimal API.",
-    technologies: ["Python", "MySQL"],
-    github: "https://github.com/your-github-handle/url-shortener",
-    liveDemo: "",
-    role: "Sole developer.",
-    features: [
-      "Custom short-code generation",
-      "Click analytics per link",
-      "Rate limiting on the redirect endpoint",
-      "Simple API-key based auth",
-    ],
-    challenges: "Avoiding short-code collisions at scale.",
-    solutions: "Used a base62-encoded auto-incrementing id to guarantee uniqueness without a lookup table.",
-  },
+  title: "Emergency Rescue System",
+  category: "Research",
+  description:
+    "A mobile-based real-time health alert system for emergency notification and location-aware rescue coordination.",
+  image: "assets/sosandoirdapp.png",
+  fullDescription:
+    "A mobile-based emergency health alert system designed to provide rapid SOS notifications, real-time GPS location sharing, and coordinated rescue support. The system integrates Flutter and Firebase to connect patients, relatives, responders, hospital users, and administrators through real-time emergency communication.",
+  technologies: [
+    "Flutter",
+    "Dart",
+    "Firebase Authentication",
+    "Cloud Firestore",
+    "Firebase Cloud Messaging",
+    "GPS / Geolocation",
+    "Google Maps",
+    "SMS"
+  ],
+  github: "https://github.com/your-github-handle/Emergency_Rescue_System",
+  liveDemo: "",
+  role: "Researcher and sole developer.",
+  features: [
+    "One-click SOS emergency alert activation",
+    "Real-time GPS location sharing",
+    "Multi-role emergency notification system",
+    "Firebase-based real-time data synchronization",
+    "Push notifications using Firebase Cloud Messaging",
+    "SMS fallback for limited Internet connectivity",
+    "Map-based emergency location visualization",
+    "Role-based support for patients, relatives, responders, hospitals, and administrators"
+  ],
+  challenges:
+    "Ensuring reliable emergency communication and accurate location sharing under different network conditions.",
+  solutions:
+    "Integrated Firebase Cloud Services, GPS-based location tracking, push notifications, and SMS fallback communication, and evaluated the system using 25 Android smartphones under Wi-Fi and 4G network conditions."
+},
 ];
 
 const EXPERIENCE = [

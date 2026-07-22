@@ -659,6 +659,21 @@ textarea:focus-visible {
   animation: heroOrb 12s ease-in-out infinite alternate;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto auto 10% 8%;
+  width: min(26rem, 50vw);
+  height: min(26rem, 50vw);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 143, 163, 0.52), rgba(255, 143, 163, 0.1) 50%, transparent 70%);
+  filter: blur(10px);
+  opacity: 0.7;
+  animation: heroAura 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
 @keyframes heroOrb {
   from {
     transform: translate(0, 0) rotate(0deg);
@@ -666,6 +681,23 @@ textarea:focus-visible {
 
   to {
     transform: translate(-40px, 30px) rotate(15deg);
+  }
+}
+
+@keyframes heroAura {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate3d(22px, -10px, 0) scale(1.08);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translate3d(-10px, 18px, 0) scale(1.14);
+    opacity: 0.84;
   }
 }
 
