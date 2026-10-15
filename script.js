@@ -6,6 +6,11 @@
 
 const TRANSLATIONS = {
   en: {
+    accessibility: {
+      skipLink: "Skip to content",
+      backToTop: "Back to top",
+      closeDetails: "Close project details"
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -14,7 +19,8 @@ const TRANSLATIONS = {
       experience: "Experience",
       education: "Education",
       contact: "Contact",
-      languageSwitch: "日本語"
+      languageSwitch: "日本語",
+      menuToggle: "Toggle navigation menu"
     },
     hero: {
   eyebrow: "~/whoami",
@@ -70,6 +76,7 @@ const TRANSLATIONS = {
         liveDemo: "Live Demo",
         viewDetails: "View Details"
       },
+      filterLabel: "Filter projects by category",
       modal: {
         features: "Main features",
         technologies: "Technologies used",
@@ -113,13 +120,19 @@ const TRANSLATIONS = {
         linkedin: "LinkedIn",
         github: "GitHub",
         location: "Location"
-      }
+      },
+      locationValue: "Saga, Japan / Open to relocation"
     },
     footer: {
       copy: "© {year} Mohammad Abdur Rahman. All rights reserved."
     }
   },
   ja: {
+    accessibility: {
+      skipLink: "本文へ移動",
+      backToTop: "ページ上部へ戻る",
+      closeDetails: "プロジェクト詳細を閉じる"
+    },
     nav: {
       home: "ホーム",
       about: "自己紹介",
@@ -128,14 +141,15 @@ const TRANSLATIONS = {
       experience: "経歴",
       education: "学歴",
       contact: "お問い合わせ",
-      languageSwitch: "English"
+      languageSwitch: "English",
+      menuToggle: "ナビゲーションメニューを開く"
     },
     hero: {
       eyebrow: "~/自己紹介",
-      role: "Web Developer",
-      roleAlt: "System Engineer",
+      role: "Web開発者",
+      roleAlt: "システムエンジニア",
       status: "新しい機会を歓迎します",
-      intro: "3年以上のIT経験を持つ Web Developer / System Engineer です。Saga University で情報科学技術を学びながら、英語（IELTS B2）、日本語（JLPT N3）、CCNA の知識を活かして、実務レベルの開発とインフラ対応を両立させています。",
+      intro: "IT業界で3年以上の経験を持つWeb開発者・システムエンジニアです。現在、佐賀大学大学院で情報科学技術を学んでいます。英語力（IELTS B2）、日本語力（JLPT N3相当）、CCNAの知識を活かし、開発とインフラの両面から貢献します。",
       primaryCta: "実績を見る",
       secondaryCta: "履歴書をダウンロード",
       statYears: "開発経験年数",
@@ -145,9 +159,9 @@ const TRANSLATIONS = {
     about: {
       eyebrow: "~/自己紹介",
       title: "プロフィール",
-      copy1: "私は Web Developer と System Engineer を軸に、実務で使えるソフトウェアを設計・構築することに興味があります。フロントエンド開発、バックエンド開発、データベース、ネットワークまでを横断して理解できることが、私の強みです。",
-      copy2: "React、Node.js、Express.js、MongoDB、Java、Spring Boot などを使って実装を行ってきました。さらに Cisco Certified Network Associate（CCNA 200-301）を保有しており、ネットワーク・インフラ・トラブルシューティングの知識も活かしています。",
-      copy3: "現在、日本の Saga University で情報科学技術の大学院課程に在籍しながら、新しい技術を学び続けています。Web Developer または System Engineer として、継続的に成長できる環境で貢献したいと考えています。",
+      copy1: "Web開発者・システムエンジニアとして、実用的なソフトウェアの開発と技術課題の解決に取り組んでいます。フロントエンド、バックエンド、データベース、ネットワークの経験を活かし、ソフトウェアとインフラの両面からアプリケーションを理解しています。",
+      copy2: "React、Node.js、Express.js、MongoDB、Java、Spring Bootなどを用いた開発経験があります。Cisco Certified Network Associate（CCNA 200-301）を取得しており、ネットワーク、システムインフラ、トラブルシューティングの知識も備えています。",
+      copy3: "現在、日本の佐賀大学大学院で情報科学技術を専攻しています。新しい技術を学び続けながら、Web開発者またはシステムエンジニアとして貢献し、成長できる機会を探しています。",
       factFocusLabel: "専門領域",
       factFocusValue: "Web 開発 & システムエンジニアリング",
       factEducationLabel: "学歴",
@@ -171,6 +185,7 @@ const TRANSLATIONS = {
         liveDemo: "デモを見る",
         viewDetails: "詳細を見る"
       },
+      filterLabel: "プロジェクトをカテゴリで絞り込む",
       modal: {
         features: "主な機能",
         technologies: "使用技術",
@@ -183,7 +198,7 @@ const TRANSLATIONS = {
     },
     experience: {
       eyebrow: "~/経歴",
-      title: "経歴"
+      title: "職務経歴"
     },
     education: {
       eyebrow: "~/学歴",
@@ -214,15 +229,17 @@ const TRANSLATIONS = {
         linkedin: "LinkedIn",
         github: "GitHub",
         location: "所在地"
-      }
+      },
+      locationValue: "日本・佐賀／転居可能"
     },
     footer: {
-      copy: "© {year} Mohammad Abdur Rahman. All rights reserved."
+      copy: "© {year} Mohammad Abdur Rahman. 無断転載を禁じます。"
     }
   }
 };
 
-let currentLanguage = localStorage.getItem("portfolio-language") || ((navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en");
+const savedLanguage = localStorage.getItem("portfolio-language");
+let currentLanguage = savedLanguage === "en" || savedLanguage === "ja" ? savedLanguage : "ja";
 
 const SKILLS = [
   {
@@ -266,6 +283,53 @@ const SKILLS = [
 
 // EDIT PROJECTS HERE — add, remove, or update entries in this array.
 const PROJECTS = [
+  {
+    title: "A Complete Job Scraper from Multiple Sources",
+    category: "Full Stack",
+    description:
+      "A dynamic MERN scraping system that collects job listings from multiple sources and brings them together in a real-time dashboard.",
+    image: "assets/Job%20Scraper.png",
+    fullDescription:
+      "A full-stack job scraping platform built with the MERN stack. It gathers job listings from multiple sources and presents them in a centralized, real-time dashboard for quick review and discovery.",
+    technologies: ["MongoDB", "Express.js", "React", "Node.js"],
+    github: "",
+    liveDemo: "",
+    role:
+      "Full-stack developer — developed the scraping workflow and dashboard experience.",
+    features: [
+      "Collect job listings from multiple sources",
+      "Centralized dashboard for viewing job results",
+      "Dynamic updates for recently collected listings",
+      "MERN-based full-stack architecture",
+    ],
+    challenges:
+      "Bringing job listings from different sources into a clear, consistent dashboard.",
+    solutions:
+      "Combined the scraping workflow with a centralized dashboard so collected listings can be reviewed together.",
+  },
+  {
+    title: "Corporate Professional Home Page",
+    category: "Frontend",
+    description:
+      "A polished corporate homepage concept designed to present a company's services, strengths, and contact information.",
+    image: "assets/Corporate%20Professional.png",
+    fullDescription:
+      "A professional corporate homepage concept with a clean visual hierarchy, service highlights, and clear calls to action. This portfolio preview uses sample company content and imagery.",
+    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    github: "",
+    liveDemo: "",
+    role: "Web developer — built the corporate homepage and responsive layout.",
+    features: [
+      "Corporate hero section with a clear call to action",
+      "Service and company overview sections",
+      "Responsive layout for desktop and mobile screens",
+      "Sample content and illustration for portfolio display",
+    ],
+    challenges:
+      "Presenting business information in a professional layout that remains easy to navigate across screen sizes.",
+    solutions:
+      "Used a clear page structure and responsive layout to keep the primary company information easy to find.",
+  },
 {
   title: "Inventory Management CRUD Application",
   category: "Full Stack",
@@ -429,7 +493,154 @@ const PROJECTS = [
 },
 ];
 
+const PROJECT_TRANSLATIONS = {
+  "A Complete Job Scraper from Multiple Sources": {
+    title: "複数サイト対応の求人スクレイピングシステム",
+    category: "フルスタック",
+    description: "複数の求人情報サイトから求人を収集し、リアルタイムのダッシュボードに集約するMERNシステムです。",
+    fullDescription: "MERNスタックで構築したフルスタックの求人情報収集プラットフォームです。複数の情報源から求人を取得し、一覧性の高いリアルタイムダッシュボードに集約します。",
+    role: "フルスタック開発者として、求人収集処理とダッシュボードを開発しました。",
+    features: [
+      "複数の情報源から求人情報を収集",
+      "収集した求人を一元管理するダッシュボード",
+      "新着求人情報を動的に表示",
+      "MERNスタックによるフルスタック構成"
+    ],
+    challenges: "異なる情報源の求人情報を、見やすく一貫性のある形式で表示すること。",
+    solutions: "求人収集処理と一元管理ダッシュボードを連携し、集めた求人をまとめて確認できるようにしました。"
+  },
+  "Corporate Professional Home Page": {
+    title: "コーポレートサイト",
+    category: "フロントエンド",
+    description: "企業のサービスや強み、問い合わせ先を分かりやすく伝えるコーポレートサイトのデザイン案です。",
+    fullDescription: "明確な情報設計、サービス紹介、行動を促す導線を備えたコーポレートサイトのデザイン案です。ポートフォリオ用にサンプルの会社情報と画像を使用しています。",
+    role: "Web開発者として、コーポレートサイトとレスポンシブレイアウトを制作しました。",
+    features: [
+      "明確な導線を備えたメインビジュアル",
+      "サービスおよび会社概要の紹介",
+      "デスクトップとモバイルに対応したレイアウト",
+      "ポートフォリオ表示用のサンプルコンテンツと画像"
+    ],
+    challenges: "さまざまな画面サイズで見やすく、企業情報を適切に伝えること。",
+    solutions: "分かりやすいページ構成とレスポンシブレイアウトにより、重要な情報を見つけやすくしました。"
+  },
+  "Inventory Management CRUD Application": {
+    title: "在庫管理アプリケーション",
+    category: "フルスタック",
+    description: "商品情報の登録・閲覧・更新・削除ができるフルスタックの在庫管理システムです。",
+    fullDescription: "商品と在庫の管理を効率化する在庫管理アプリケーションです。商品名、SKU、カテゴリ、数量、価格などの情報を、使いやすい画面から一元管理できます。",
+    role: "単独開発者として、アプリケーション設計、REST API、MongoDB連携、Reactの画面開発を担当しました。",
+    features: [
+      "在庫商品の登録・閲覧・更新・削除",
+      "SKU、カテゴリ、数量、価格による商品管理",
+      "商品名やカテゴリによる検索・絞り込み",
+      "Node.jsとExpress.jsによるREST API",
+      "MongoDBによるデータ永続化"
+    ],
+    challenges: "Reactの画面、REST API、MongoDB間の連携と、操作後の在庫情報の同期。",
+    solutions: "Express.jsとMongooseでREST APIを構築し、非同期通信と状態管理を用いて操作後に在庫情報を更新するようにしました。"
+  },
+  "Bank Queue Management System Windows Application": {
+    title: "銀行向け順番待ち管理システム",
+    category: "フルスタック",
+    description: "銀行の来店客と職員がリアルタイムで利用できる、Windows向け順番待ち管理システムです。",
+    fullDescription: "来店客が受付番号を取得し、職員が順番待ちをリアルタイムで管理できるシステムです。リアルタイム更新用のWebSocketサーバーと、来店客・職員向けのクライアントアプリケーションで構成されています。",
+    role: "単独開発者として、来店客向け画面と管理者ダッシュボードの両方を開発しました。",
+    features: [
+      "複数窓口ごとの順番待ち管理",
+      "来店客向けの簡単な受付番号発行と表示",
+      "順番待ち状態の保存",
+      "SQL Serverを利用したリアルタイム更新"
+    ],
+    challenges: "複数のクライアント間で順番待ち状態を保ち、ネットワーク切断にも適切に対応すること。",
+    solutions: "SQL Serverをバックエンドに採用し、リアルタイムのデータ更新によって状態の一貫性を保ちました。"
+  },
+  "Japan Weather Monitoring System": {
+    title: "日本の天気情報モニタリングシステム",
+    category: "フルスタック",
+    description: "安全なユーザー認証を備え、日本全国の都道府県の天気情報を表示するWebアプリケーションです。",
+    fullDescription: "MERNスタックで構築した天気情報アプリケーションです。ユーザー登録とログインを行い、シンプルでレスポンシブな画面から日本各地の天気情報を確認できます。",
+    role: "単独開発者として開発しました。",
+    features: [
+      "日本全国の都道府県の天気情報",
+      "ユーザー登録とログイン",
+      "安全なユーザー認証",
+      "レスポンシブなユーザーインターフェース",
+      "天気情報とユーザーデータ用のバックエンドAPI"
+    ],
+    challenges: "複数の都道府県の天気情報と、フロントエンド・バックエンド間のユーザー認証を連携すること。",
+    solutions: "Node.jsとExpressでREST APIを構築し、MongoDBでデータを管理して、Reactで使いやすい画面を実装しました。"
+  },
+  "Job Searching Web Application": {
+    title: "求人検索Webアプリケーション",
+    category: "フルスタック",
+    description: "アカウント作成や履歴書のアップロードを行い、求人情報を検索できる求職者向けプラットフォームです。",
+    fullDescription: "求職者向けのフルスタック求人検索アプリケーションです。ユーザー登録、アカウント管理、履歴書のアップロード、Google Jobs Information APIを利用した求人検索ができます。管理者向け画面からアップロードされた履歴書を管理できます。",
+    role: "単独開発者として、フロントエンド、バックエンド、認証、履歴書アップロード、管理者機能を設計・開発しました。",
+    features: [
+      "ユーザー登録とログイン",
+      "求職者プロフィールの管理",
+      "履歴書のアップロード",
+      "履歴書を確認する管理者ダッシュボード",
+      "Google Jobs Information APIを利用した求人情報",
+      "求人の検索と閲覧",
+      "MongoDBによるデータ管理",
+      "レスポンシブなWebインターフェース"
+    ],
+    challenges: "ユーザー認証、履歴書のアップロード、管理者機能、外部求人情報を一つのアプリケーションに統合すること。",
+    solutions: "Node.jsとExpressでREST APIを構築し、MongoDBでユーザーと応募データを管理しました。安全なファイルアップロードと外部求人情報を連携しました。"
+  },
+  "Movie Finder App in Japan": {
+    title: "日本国内の映画上映情報検索アプリ",
+    category: "フルスタック",
+    description: "日本各地の映画上映館、都道府県、チケット料金、上映状況を検索できるプラットフォームです。",
+    fullDescription: "MERNスタックで構築した映画情報アプリケーションです。作品名で検索し、都道府県、映画館、チケット料金、上映状況などの詳細を確認できます。独自に開発したAPIで上映情報を管理します。",
+    role: "単独開発者として、フロントエンド、バックエンド、データベース、独自APIを設計・開発しました。",
+    features: [
+      "作品名による映画検索",
+      "日本各地の上映情報を検索",
+      "上映している都道府県を表示",
+      "映画館情報を表示",
+      "チケット料金を表示",
+      "上映状況を表示",
+      "アプリケーション用の独自REST API",
+      "MongoDBによるデータ管理",
+      "レスポンシブなユーザーインターフェース"
+    ],
+    challenges: "複数の都道府県や映画館の上映情報を整理し、上映中かどうかを分かりやすく伝えること。",
+    solutions: "Node.jsとExpressで映画・映画館情報を管理するREST APIを構築し、Reactの画面に上映場所、料金、上映状況を動的に表示しました。"
+  },
+  "Emergency Rescue System": {
+    title: "緊急救助支援システム",
+    category: "研究",
+    description: "緊急通知と位置情報を活用し、救助活動を支援するリアルタイムのモバイル健康アラートシステムです。",
+    fullDescription: "迅速なSOS通知、GPSによるリアルタイム位置共有、連携した救助支援を目的とするモバイル向け緊急健康アラートシステムです。FlutterとFirebaseを連携し、患者、家族、救助担当者、病院、管理者間のリアルタイム通信を実現します。",
+    role: "研究者兼単独開発者として取り組みました。",
+    features: [
+      "ワンタップでのSOS緊急通知",
+      "GPSによるリアルタイム位置共有",
+      "複数の役割に対応した緊急通知システム",
+      "Firebaseによるリアルタイムデータ同期",
+      "Firebase Cloud Messagingによるプッシュ通知",
+      "インターネット接続が不安定な場合のSMS通知",
+      "地図上での緊急位置表示",
+      "患者、家族、救助担当者、病院、管理者向けの機能"
+    ],
+    challenges: "異なるネットワーク環境でも、緊急連絡と位置共有の信頼性を確保すること。",
+    solutions: "Firebase、GPS位置追跡、プッシュ通知、SMSによる代替連絡を統合し、Wi-Fiおよび4G環境下でAndroid端末25台を用いて評価しました。"
+  }
+};
+
 const EXPERIENCE = [
+  {
+    title: "Full Stack Web Developer",
+    company: "Prios Co., Ltd, Tokyo, Japan",
+    date: "Present",
+    responsibilities: [
+      "Currently working as a Full Stack Web Developer",
+    ],
+    technologies: ["Full-Stack Development", "Web Applications"],
+  },
   {
     title: "System Engineer",
     company: "Green Tech Dahaka, Bangladesh",
@@ -454,6 +665,35 @@ const EXPERIENCE = [
   },
 ];
 
+const EXPERIENCE_TRANSLATIONS = [
+  {
+    title: "フルスタックWeb開発者",
+    company: "Prios Co., Ltd（日本・東京）",
+    date: "現在",
+    responsibilities: ["フルスタックWeb開発者として勤務"],
+  },
+  {
+    title: "システムエンジニア",
+    company: "Green Tech Dahaka（バングラデシュ）",
+    date: "2022年 — 2025年",
+    responsibilities: [
+      "中小企業向けのフルスタックWebアプリケーションを設計・開発",
+      "クライアントと要件や現実的なスケジュールを直接調整",
+      "Vercelなどのクラウド環境に本番アプリケーションをデプロイ・保守",
+    ],
+  },
+  {
+    title: "リモートITサポートスペシャリスト",
+    company: "Merb Resources Ltd（ナイジェリア）",
+    date: "2020年 — 2021年",
+    responsibilities: [
+      "社内チーム向けWordPress/PHPサービスの機能開発に参加",
+      "レガシーモジュールのテストを作成し、カバレッジを向上",
+      "アジャイルチームのコードレビューとスプリント計画に参加",
+    ],
+  },
+];
+
 const EDUCATION = [
   {
     degree: "B.Sc. in Computer Science & Engineering",
@@ -466,6 +706,21 @@ const EDUCATION = [
     university: "Saga National University, Japan",
     date: "April 2025 — March 2027",
     field: "Science and Engineering, with a focus on advanced software development and research",
+  },
+];
+
+const EDUCATION_TRANSLATIONS = [
+  {
+    degree: "コンピューターサイエンス・工学学士",
+    university: "ジャショール科学技術大学（バングラデシュ）",
+    date: "2017年 — 2022年",
+    field: "ソフトウェア工学、Web技術、データベースを専攻",
+  },
+  {
+    degree: "コンピューターサイエンス・情報技術（大学院）",
+    university: "佐賀大学（日本）",
+    date: "2025年4月 — 2027年3月",
+    field: "科学・工学分野にて、高度なソフトウェア開発と研究に取り組む",
   },
 ];
 
@@ -499,10 +754,18 @@ function applyTranslations() {
     }
   });
 
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-aria-label");
+    const translation = getTranslation(key);
+    if (typeof translation === "string") {
+      element.setAttribute("aria-label", translation);
+    }
+  });
+
   const toggle = document.getElementById("langToggle");
   if (toggle) {
     toggle.textContent = getTranslation("nav.languageSwitch");
-    toggle.setAttribute("aria-label", currentLanguage === "ja" ? "Switch to English" : "日本語に切り替える");
+    toggle.setAttribute("aria-label", currentLanguage === "ja" ? "英語に切り替える" : "Switch to Japanese");
   }
 
   const footerCopy = document.querySelector(".footer-copy");
@@ -517,18 +780,26 @@ function setLanguage(lang) {
   currentLanguage = lang;
   localStorage.setItem("portfolio-language", lang);
   applyTranslations();
+  renderProjectFilters();
   renderProjects();
   renderSkills();
   renderExperience();
   renderEducation();
+  initScrollReveal();
 }
 
 function renderSkills() {
   const grid = document.getElementById("skillsGrid");
+  const categoryTranslations = {
+    Frontend: "フロントエンド",
+    Backend: "バックエンド",
+    Database: "データベース",
+    Tools: "ツール",
+  };
   grid.innerHTML = SKILLS.map(
     (group) => `
     <div class="skill-card">
-      <p class="skill-card-title">${group.category}</p>
+      <p class="skill-card-title">${currentLanguage === "ja" ? categoryTranslations[group.category] : group.category}</p>
       ${group.items
         .map(
           (item) => `
@@ -557,26 +828,27 @@ const projectFilterState = { current: "All" };
 function renderProjectFilters() {
   const categories = ["All", ...new Set(PROJECTS.map((p) => p.category))];
   const container = document.getElementById("projectFilters");
+  const labels = {
+    All: "すべて",
+    "Full Stack": "フルスタック",
+    Frontend: "フロントエンド",
+    Research: "研究",
+  };
   container.innerHTML = categories
-    .map(
-      (cat, i) => `
-      <button class="filter-btn${cat === "All" ? " is-active" : ""}" role="tab"
-        aria-selected="${cat === "All"}" data-filter="${cat}">${cat}</button>
-    `
-    )
+    .map((cat) => {
+      const label = currentLanguage === "ja" ? labels[cat] : cat;
+      const active = projectFilterState.current === cat;
+      return `
+      <button class="filter-btn${active ? " is-active" : ""}" role="tab"
+        aria-selected="${active}" data-filter="${cat}">${label}</button>
+    `;
+    })
     .join("");
+}
 
-  container.addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter-btn");
-    if (!btn) return;
-    projectFilterState.current = btn.dataset.filter;
-    container.querySelectorAll(".filter-btn").forEach((b) => {
-      const active = b === btn;
-      b.classList.toggle("is-active", active);
-      b.setAttribute("aria-selected", String(active));
-    });
-    renderProjects();
-  });
+function getLocalizedProject(project) {
+  if (currentLanguage !== "ja") return project;
+  return { ...project, ...PROJECT_TRANSLATIONS[project.title] };
 }
 
 function renderProjects() {
@@ -588,14 +860,17 @@ function renderProjects() {
 
   grid.innerHTML = filtered
     .map(
-      (project, index) => `
+      (sourceProject) => {
+        const project = getLocalizedProject(sourceProject);
+        const projectIndex = PROJECTS.indexOf(sourceProject);
+        return `
     <article class="project-card reveal is-visible">
-      <div class="project-media" data-project-index="${PROJECTS.indexOf(project)}">
-        <img src="${project.image}" alt="${project.title} preview" loading="lazy" />
+      <div class="project-media" data-project-index="${projectIndex}">
+        <img src="${project.image}" alt="${currentLanguage === "ja" ? `${project.title}の画像` : `${project.title} preview`}" loading="lazy" />
       </div>
       <div class="project-body">
         <span class="project-category">${project.category}</span>
-        <h3 class="project-title" data-project-index="${PROJECTS.indexOf(project)}">${project.title}</h3>
+        <h3 class="project-title" data-project-index="${projectIndex}">${project.title}</h3>
         <p class="project-desc">${project.description}</p>
         <div class="tag-list">
           ${project.technologies.map((t) => `<span class="tag">${t}</span>`).join("")}
@@ -603,11 +878,12 @@ function renderProjects() {
         <div class="project-actions">
           ${project.github ? `<a class="btn btn-ghost btn-sm" href="${project.github}" target="_blank" rel="noopener noreferrer">${getTranslation("projects.buttons.github")}</a>` : ""}
           ${project.liveDemo ? `<a class="btn btn-ghost btn-sm" href="${project.liveDemo}" target="_blank" rel="noopener noreferrer">${getTranslation("projects.buttons.liveDemo")}</a>` : ""}
-          <button class="btn btn-primary btn-sm" data-project-index="${PROJECTS.indexOf(project)}" data-view-details>${getTranslation("projects.buttons.viewDetails")}</button>
+          <button class="btn btn-primary btn-sm" data-project-index="${projectIndex}" data-view-details>${getTranslation("projects.buttons.viewDetails")}</button>
         </div>
       </div>
     </article>
-  `
+  `;
+      }
     )
     .join("");
 }
@@ -620,7 +896,9 @@ function renderExperience() {
   if (!el) return;
 
   el.innerHTML = EXPERIENCE.map(
-    (job) => `
+    (sourceJob, index) => {
+      const job = currentLanguage === "ja" ? { ...sourceJob, ...EXPERIENCE_TRANSLATIONS[index] } : sourceJob;
+      return `
     <div class="timeline-item reveal">
       <span class="timeline-date">${job.date}</span>
       <h3 class="timeline-title">${job.title}</h3>
@@ -632,7 +910,8 @@ function renderExperience() {
         ${job.technologies.map((t) => `<span class="tag">${t}</span>`).join("")}
       </div>
     </div>
-  `
+  `;
+    }
   ).join("");
 }
 
@@ -641,14 +920,17 @@ function renderEducation() {
   if (!el) return;
 
   el.innerHTML = EDUCATION.map(
-    (edu) => `
+    (sourceEducation, index) => {
+      const edu = currentLanguage === "ja" ? { ...sourceEducation, ...EDUCATION_TRANSLATIONS[index] } : sourceEducation;
+      return `
     <div class="timeline-item reveal">
       <span class="timeline-date">${edu.date}</span>
       <h3 class="timeline-title">${edu.degree}</h3>
       <span class="timeline-org">${edu.university}</span>
       <p class="timeline-desc">${edu.field}</p>
     </div>
-  `
+  `;
+    }
   ).join("");
 }
 
@@ -661,12 +943,13 @@ const modalClose = document.getElementById("modalClose");
 let lastFocusedElement = null;
 
 function openProjectModal(index) {
-  const project = PROJECTS[index];
-  if (!project) return;
+  const sourceProject = PROJECTS[index];
+  if (!sourceProject) return;
+  const project = getLocalizedProject(sourceProject);
 
   modalBody.innerHTML = `
     <div class="modal-media">
-      <img src="${project.image}" alt="${project.title} preview" loading="lazy" />
+      <img src="${project.image}" alt="${currentLanguage === "ja" ? `${project.title}の画像` : `${project.title} preview`}" loading="lazy" />
     </div>
     <span class="modal-category">${project.category}</span>
     <h2 class="modal-title" id="modalTitle">${project.title}</h2>
@@ -748,7 +1031,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   });
 });
 
-const sections = ["home", "about", "skills", "projects", "contact"]
+const sections = ["home", "about", "skills", "experience", "projects", "contact"]
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 
@@ -885,6 +1168,19 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(currentLanguage === "ja" ? "en" : "ja");
     });
   }
+
+  document.getElementById("projectFilters").addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    projectFilterState.current = btn.dataset.filter;
+    document.querySelectorAll("#projectFilters .filter-btn").forEach((filter) => {
+      const active = filter === btn;
+      filter.classList.toggle("is-active", active);
+      filter.setAttribute("aria-selected", String(active));
+    });
+    renderProjects();
+    initScrollReveal();
+  });
 
   renderSkills();
   renderProjectFilters();

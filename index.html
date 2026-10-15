@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rahman Abdur</title>
-<meta name="description" content="Portfolio of Mohammad Abdur Rahman, Web Developer &amp; Software Engineer. Projects, skills, experience and contact information." />
+<title>Rahman Abdur | ポートフォリオ</title>
+<meta name="description" content="Mohammad Abdur Rahmanのポートフォリオ。Web開発、システムエンジニアリング、プロジェクト、スキル、職務経歴をご紹介します。" />
 
 <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (labels/code) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 <body>
 
 <!-- ============ SKIP LINK (accessibility) ============ -->
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="accessibility.skipLink">本文へ移動</a>
 
 <!-- ============ NAVIGATION ============ -->
 <header class="nav" id="navHeader">
@@ -26,15 +26,16 @@
     </a>
 
     <nav class="nav-links" id="navLinks">
-      <a href="#home" class="nav-link" data-nav-link data-i18n="nav.home">Home</a>
-      <a href="#about" class="nav-link" data-nav-link data-i18n="nav.about">About</a>
-      <a href="#skills" class="nav-link" data-nav-link data-i18n="nav.skills">Skills</a>
-      <a href="#projects" class="nav-link" data-nav-link data-i18n="nav.projects">Projects</a>
-      <a href="#contact" class="nav-link nav-link--cta" data-nav-link data-i18n="nav.contact">Contact</a>
+      <a href="#home" class="nav-link" data-nav-link data-i18n="nav.home">ホーム</a>
+      <a href="#about" class="nav-link" data-nav-link data-i18n="nav.about">自己紹介</a>
+      <a href="#skills" class="nav-link" data-nav-link data-i18n="nav.skills">スキル</a>
+      <a href="#experience" class="nav-link" data-nav-link data-i18n="nav.experience">職務経歴</a>
+      <a href="#projects" class="nav-link" data-nav-link data-i18n="nav.projects">実績</a>
+      <a href="#contact" class="nav-link nav-link--cta" data-nav-link data-i18n="nav.contact">お問い合わせ</a>
     </nav>
 
-    <button class="lang-switch" id="langToggle" type="button" aria-label="Switch language" data-i18n="nav.languageSwitch">日本語</button>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+    <button class="lang-switch" id="langToggle" type="button" aria-label="英語に切り替える" data-i18n="nav.languageSwitch">English</button>
+    <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを開く" data-i18n-aria-label="nav.menuToggle" aria-expanded="false" aria-controls="navLinks">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -50,52 +51,49 @@
     <div class="section-inner hero-inner">
 
       <div class="hero-copy reveal">
-        <p class="eyebrow" data-i18n="hero.eyebrow">whoami</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">~/自己紹介</p>
 
         <h1 class="hero-title">
          Rahman <br class="hero-break"> Abdur (アブドル)
         </h1>
 
-        <p class="hero-role"><span data-i18n="hero.role">Web Developer</span> <span class="hero-role-slash">/</span> <span data-i18n="hero.roleAlt">Software Engineer</span></p>
+        <p class="hero-role"><span data-i18n="hero.role">Web開発者</span> <span class="hero-role-slash">/</span> <span data-i18n="hero.roleAlt">システムエンジニア</span></p>
 
         <p class="hero-status">
           <span class="status-dot" aria-hidden="true"></span>
-          <span data-i18n="hero.status">Available for new opportunities</span>
+          <span data-i18n="hero.status">新しい機会を歓迎します</span>
         </p>
 
         <p class="hero-intro" data-i18n="hero.intro">
-          I build fast, accessible, end-to-end web applications — from
-          pixel-considered interfaces to the APIs and databases behind them.
-          Comfortable across the stack, focused on shipping things that hold
-          up in production.
+          3年以上のIT経験を持つWeb開発者・システムエンジニアです。佐賀大学大学院で情報科学技術を学びながら、英語（IELTS B2）、日本語（JLPT N3相当）、CCNAの知識を活かし、開発とインフラの両面からプロジェクトに貢献します。
         </p>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary" data-nav-link data-i18n="hero.primaryCta">View My Projects</a>
-          <a href="assets/履歴書.pdf" class="btn btn-outline" download data-i18n="hero.secondaryCta">Download CV</a>
+          <a href="#projects" class="btn btn-primary" data-nav-link data-i18n="hero.primaryCta">実績を見る</a>
+          <a href="https://drive.google.com/file/d/1kOx0wgiZouaWiqSJTkUHah60kHiWkiU_/view?usp=sharing" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="hero.secondaryCta">履歴書をダウンロード</a>
         </div>
 
         <dl class="hero-stats">
           <div class="hero-stat">
-            <dt>3 Years</dt>
-            <dd data-i18n="hero.statYears">IT Experience</dd>
+            <dt>3年</dt>
+            <dd data-i18n="hero.statYears">IT業界での経験</dd>
           </div>
           <div class="hero-stat">
             <dt>15+</dt>
-            <dd data-i18n="hero.statProjects">Projects built</dd>
+            <dd data-i18n="hero.statProjects">制作実績</dd>
           </div>
           <div class="hero-stat">
-            <dt>12</dt>
-            <dd data-i18n="hero.statStack">Web & Network Technologies</dd>
+            <dt>12種類</dt>
+            <dd data-i18n="hero.statStack">Web・ネットワーク技術</dd>
           </div>
         </dl>
       </div>
 
       <div class="hero-media reveal">
         <div class="hero-photo-frame">
-          <img src="assets/rahman.png" alt="Profile illustration of Mohammad Abdur Rahman" class="hero-photo" />
-          <div class="hero-badge" aria-label="CCNA badge">
-            <img src="assets/ccna.png" alt="CCNA badge" />
+          <img src="assets/rahman.png" alt="Mohammad Abdur Rahmanのプロフィール画像" class="hero-photo" />
+          <div class="hero-badge" aria-label="CCNA認定バッジ">
+            <img src="assets/ccna.png" alt="CCNA認定バッジ" />
           </div>
           <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
           <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
@@ -108,50 +106,38 @@
   <!-- ============ ABOUT ============ -->
   <section class="section" id="about">
     <div class="section-inner">
-      <p class="eyebrow" data-i18n="about.eyebrow">about</p>
-      <h2 class="section-title" data-i18n="about.title">About me</h2>
+      <p class="eyebrow" data-i18n="about.eyebrow">~/自己紹介</p>
+      <h2 class="section-title" data-i18n="about.title">プロフィール</h2>
 
       <div class="about-grid">
         <div class="about-copy reveal">
           <p data-i18n="about.copy1">
-            I'm a web developer and software engineer who enjoys turning
-            ambiguous problems into clean, working software. My background
-            spans both front-end interfaces and back-end systems, which lets
-            me reason about a feature end-to-end — from the database schema
-            to the pixel on screen.
+            Web開発者・システムエンジニアとして、実用的なソフトウェアの開発と技術課題の解決に取り組んでいます。フロントエンド、バックエンド、データベース、ネットワークの経験を活かし、ソフトウェアとインフラの両面からアプリケーションを理解しています。
           </p>
           <p data-i18n="about.copy2">
-            I studied Computer Science and have spent my education and early
-            career deliberately widening my stack: modern JavaScript
-            frameworks on the front end, Node.js and Java/Spring Boot on the
-            back end, and relational and document databases underneath. I
-            care about code that's easy to read six months later, not just
-            code that works today.
+            React、Node.js、Express.js、MongoDB、Java、Spring Bootなどを用いた開発経験があります。Cisco Certified Network Associate（CCNA 200-301）を取得しており、ネットワーク、システムインフラ、トラブルシューティングの知識も備えています。
           </p>
           <p data-i18n="about.copy3">
-            What keeps me in this field is the feedback loop — writing a line
-            of code and seeing it become something a real person can click,
-            use, and rely on. I'm currently looking for a team where I can
-            keep building that kind of software at a higher level.
+            現在、日本の佐賀大学大学院で情報科学技術を専攻しています。新しい技術を学び続けながら、Web開発者またはシステムエンジニアとして貢献し、成長できる機会を探しています。
           </p>
         </div>
 
         <div class="about-facts reveal">
           <div class="fact-card">
-            <span class="fact-label" data-i18n="about.factFocusLabel">Focus</span>
-            <span class="fact-value" data-i18n="about.factFocusValue">Full-Stack Web Development</span>
+            <span class="fact-label" data-i18n="about.factFocusLabel">専門領域</span>
+            <span class="fact-value" data-i18n="about.factFocusValue">Web開発・システムエンジニアリング</span>
           </div>
           <div class="fact-card">
-            <span class="fact-label" data-i18n="about.factEducationLabel">Education</span>
-            <span class="fact-value" data-i18n="about.factEducationValue">B.Sc. in Computer Science</span>
+            <span class="fact-label" data-i18n="about.factEducationLabel">学歴</span>
+            <span class="fact-value" data-i18n="about.factEducationValue">情報科学技術修士課程（在学中）</span>
           </div>
           <div class="fact-card">
-            <span class="fact-label" data-i18n="about.factLocationLabel">Based in</span>
-            <span class="fact-value" data-i18n="about.factLocationValue">Available for Remote / Relocation</span>
+            <span class="fact-label" data-i18n="about.factLocationLabel">所在地</span>
+            <span class="fact-value" data-i18n="about.factLocationValue">日本・佐賀</span>
           </div>
           <div class="fact-card">
-            <span class="fact-label" data-i18n="about.factStatusLabel">Currently</span>
-            <span class="fact-value" data-i18n="about.factStatusValue">Open to new opportunities</span>
+            <span class="fact-label" data-i18n="about.factStatusLabel">資格</span>
+            <span class="fact-value" data-i18n="about.factStatusValue">Cisco Certified Network Associate（CCNA）</span>
           </div>
         </div>
       </div>
@@ -161,9 +147,9 @@
   <!-- ============ SKILLS ============ -->
   <section class="section section--muted" id="skills">
     <div class="section-inner">
-      <p class="eyebrow" data-i18n="skills.eyebrow">skills</p>
-      <h2 class="section-title" data-i18n="skills.title">Technical skills</h2>
-      <p class="section-lede" data-i18n="skills.lede">Technologies I use regularly, grouped by where they sit in the stack.</p>
+      <p class="eyebrow" data-i18n="skills.eyebrow">~/スキル</p>
+      <h2 class="section-title" data-i18n="skills.title">技術スキル</h2>
+      <p class="section-lede" data-i18n="skills.lede">日常的に扱う技術を、スタック別にご紹介します。</p>
 
       <div class="skills-grid" id="skillsGrid">
         <!-- Skill category cards are rendered here by script.js -->
@@ -171,14 +157,23 @@
     </div>
   </section>
 
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <p class="eyebrow" data-i18n="experience.eyebrow">~/経歴</p>
+      <h2 class="section-title" data-i18n="experience.title">職務経歴</h2>
+      <div class="timeline" id="experienceTimeline"></div>
+    </div>
+  </section>
+
   <!-- ============ PROJECTS ============ -->
   <section class="section" id="projects">
     <div class="section-inner">
-      <p class="eyebrow" data-i18n="projects.eyebrow">projects</p>
-      <h2 class="section-title" data-i18n="projects.title">Selected projects</h2>
-      <p class="section-lede" data-i18n="projects.lede">A mix of front-end, full-stack and backend work. Filter by type or open a card for the full write-up.</p>
+      <p class="eyebrow" data-i18n="projects.eyebrow">~/実績</p>
+      <h2 class="section-title" data-i18n="projects.title">代表プロジェクト</h2>
+      <p class="section-lede" data-i18n="projects.lede">フロントエンドからバックエンドまで、幅広い開発実績をご紹介します。カテゴリで絞り込み、詳細をご覧いただけます。</p>
 
-      <div class="project-filters" id="projectFilters" role="tablist" aria-label="Filter projects by category">
+      <div class="project-filters" id="projectFilters" role="tablist" aria-label="プロジェクトをカテゴリで絞り込む" data-i18n-aria-label="projects.filterLabel">
         <!-- Filter buttons rendered by script.js -->
       </div>
 
@@ -191,10 +186,10 @@
   <!-- ============ CONTACT ============ -->
   <section class="section section--dark" id="contact">
     <div class="section-inner">
-      <p class="eyebrow eyebrow--inverse" data-i18n="contact.eyebrow">contact</p>
-      <h2 class="section-title section-title--inverse" data-i18n="contact.title">Let's work together</h2>
+      <p class="eyebrow eyebrow--inverse" data-i18n="contact.eyebrow">~/お問い合わせ</p>
+      <h2 class="section-title section-title--inverse" data-i18n="contact.title">一緒に働ける機会を探しています</h2>
       <p class="section-lede section-lede--inverse" data-i18n="contact.lede">
-        Have a role, a project, or just want to say hello? My inbox is open.
+        採用、プロジェクトのご相談、ご挨拶など、お気軽にご連絡ください。
       </p>
 
       <div class="contact-grid">
@@ -204,7 +199,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6.5A2 2 0 0 1 5 4.5h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-11Z"/><path d="m4 6 8 6.5L20 6"/></svg>
             </span>
             <span>
-              <span class="contact-label" data-i18n="contact.labels.email">Email</span>
+              <span class="contact-label" data-i18n="contact.labels.email">メール</span>
               <span class="contact-value">abdrahmancse@gmail.com</span>
             </span>
           </a>
@@ -234,32 +229,32 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10.5c0 6-8 11-8 11s-8-5-8-11a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.5" r="2.75"/></svg>
             </span>
             <span>
-              <span class="contact-label" data-i18n="contact.labels.location">Location</span>
-              <span class="contact-value">Saga, Japan / Open to relocation</span>
+              <span class="contact-label" data-i18n="contact.labels.location">所在地</span>
+              <span class="contact-value" data-i18n="contact.locationValue">日本・佐賀／転居可能</span>
             </span>
           </div>
         </div>
 
         <form class="contact-form reveal" id="contactForm" novalidate>
           <div class="form-row">
-            <label for="cf-name" data-i18n="contact.form.nameLabel">Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Your full name" data-i18n-placeholder="contact.form.namePlaceholder" />
+            <label for="cf-name" data-i18n="contact.form.nameLabel">お名前</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="お名前を入力してください" data-i18n-placeholder="contact.form.namePlaceholder" />
             <span class="form-error" id="cf-name-error"></span>
           </div>
 
           <div class="form-row">
-            <label for="cf-email" data-i18n="contact.form.emailLabel">Email</label>
+            <label for="cf-email" data-i18n="contact.form.emailLabel">メールアドレス</label>
             <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="contact.form.emailPlaceholder" />
             <span class="form-error" id="cf-email-error"></span>
           </div>
 
           <div class="form-row">
-            <label for="cf-message" data-i18n="contact.form.messageLabel">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me a bit about the role or project..." data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+            <label for="cf-message" data-i18n="contact.form.messageLabel">メッセージ</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="職種やプロジェクトについてお聞かせください" data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
             <span class="form-error" id="cf-message-error"></span>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.form.submit">Send message</button>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.form.submit">送信する</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -278,19 +273,19 @@
     <div class="footer-social">
       <a href="https://github.com/abdurrahman16" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
       <a href="https://www.linkedin.com/in/rahmansaga/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
-      <a href="mailto:abdrahmancse@gmail.com" aria-label="Send an email">Email</a>
+      <a href="mailto:abdrahmancse@gmail.com" aria-label="メールを送る">メール</a>
     </div>
 
-    <p class="footer-copy" data-i18n="footer.copy">© {year} Mohammad Abdur Rahman. All rights reserved.</p>
+    <p class="footer-copy" data-i18n="footer.copy">© {year} Mohammad Abdur Rahman. 無断転載を禁じます。</p>
   </div>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <button class="back-to-top" id="backToTop" aria-label="ページ上部へ戻る" data-i18n-aria-label="accessibility.backToTop">↑</button>
 </footer>
 
 <!-- ============ PROJECT DETAIL MODAL ============ -->
 <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close project details">✕</button>
+    <button class="modal-close" id="modalClose" aria-label="プロジェクト詳細を閉じる" data-i18n-aria-label="accessibility.closeDetails">✕</button>
     <div class="modal-body" id="modalBody">
       <!-- Populated dynamically by script.js -->
     </div>
